@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GRNetworks Tecnologia - Soluções em TI e IA</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        header {
+            background: linear-gradient(135deg, #0088cc 0%, #005580 100%);
+            color: white;
+            padding: 100px 20px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><circle cx="50" cy="50" r="2" fill="rgba(255,255,255,0.1)"/></svg>');
+            animation: drift 20s linear infinite;
+        }
+
+        .logo-container {
+            margin-bottom: 30px;
+            background: white;
+            padding: 20px;
+            border-radius: 20px;
+            display: inline-block;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .logo {
+            max-width: 250px;
+            height: auto;
+            display: block;
+        }
+
+        @keyframes drift {
+            from { transform: translateX(0); }
+            to { transform: translateX(100px); }
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        h1 {
+            font-size: 3em;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .tagline {
+            font-size: 1.3em;
+            margin-bottom: 10px;
+            opacity: 0.95;
+        }
+
+        .experience {
+            font-size: 1.1em;
+            opacity: 0.9;
+            font-weight: 600;
+            margin-top: 15px;
+        }
+
+        .services {
+            padding: 80px 20px;
+            background: #f8f9fa;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5em;
+            margin-bottom: 60px;
+            color: #0088cc;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .service-card {
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+            border-top: 4px solid #0088cc;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0,136,204,0.2);
+        }
+
+        .service-icon {
+            font-size: 3em;
+            margin-bottom: 20px;
+            color: #0088cc;
+        }
+
+        .service-card h3 {
+            font-size: 1.5em;
+            margin-bottom: 15px;
+            color: #333;
+        }
+
+        .service-card p {
+            color: #666;
+            line-height: 1.8;
+        }
+
+        .service-list {
+            list-style: none;
+            margin-top: 15px;
+        }
+
+        .service-list li {
+            padding: 8px 0;
+            color: #555;
+            position: relative;
+            padding-left: 25px;
+        }
+
+        .service-list li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #0088cc;
+            font-weight: bold;
+        }
+
+        .portfolio {
+            padding: 80px 20px;
+            background: white;
+        }
+
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .portfolio-item {
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+            border-top: 4px solid #0088cc;
+        }
+
+        .portfolio-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0,136,204,0.2);
+        }
+
+        .portfolio-icon {
+            font-size: 3em;
+            margin-bottom: 20px;
+            color: #0088cc;
+        }
+
+        .portfolio-item h3 {
+            font-size: 1.5em;
+            margin-bottom: 15px;
+            color: #333;
+        }
+
+        .portfolio-item p {
+            color: #666;
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+
+        .portfolio-tech {
+            display: inline-block;
+            background: rgba(0,136,204,0.1);
+            color: #0088cc;
+            padding: 8px 20px;
+            border-radius: 25px;
+            font-size: 0.9em;
+            font-weight: 600;
+        }
+
+        .cta-section {
+            background: linear-gradient(135deg, #005580 0%, #003d5c 100%);
+            color: white;
+            padding: 80px 20px;
+            text-align: center;
+        }
+
+        .cta-section h2 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+        }
+
+        .cta-section p {
+            font-size: 1.2em;
+            margin-bottom: 40px;
+            opacity: 0.9;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 15px 40px;
+            background: white;
+            color: #0088cc;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            font-size: 1.1em;
+            transition: all 0.3s;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+        }
+
+        footer {
+            background: #222;
+            color: white;
+            text-align: center;
+            padding: 30px 20px;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2em;
+            }
+
+            .section-title {
+                font-size: 2em;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo-container">
+                <img src="logo.png" alt="GRNetworks Tecnologia" class="logo" id="logo">
+            </div>
+            <h1>GRNetworks Tecnologia</h1>
+            <p class="tagline">Soluções Completas em TI e Inteligência Artificial</p>
+            <p class="experience">✨ Mais de 20 anos de excelência no mercado de TI</p>
+        </div>
+    </header>
+
+    <section class="services">
+        <div class="container">
+            <h2 class="section-title">Nossos Serviços</h2>
+            
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">🤖</div>
+                    <h3>Soluções em Inteligência Artificial</h3>
+                    <p>Transformamos seu negócio com IA de ponta, implementando soluções inteligentes e personalizadas.</p>
+                    <ul class="service-list">
+                        <li>Chatbots Inteligentes</li>
+                        <li>Análise Preditiva</li>
+                        <li>Automação com IA</li>
+                        <li>Machine Learning</li>
+                        <li>Processamento de Linguagem Natural</li>
+                    </ul>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">📱</div>
+                    <h3>Desenvolvimento de Aplicativos</h3>
+                    <p>Criamos aplicativos mobile e web modernos, escaláveis e com excelente experiência do usuário.</p>
+                    <ul class="service-list">
+                        <li>Apps iOS e Android</li>
+                        <li>Progressive Web Apps (PWA)</li>
+                        <li>Aplicações Híbridas</li>
+                        <li>Design Responsivo</li>
+                        <li>Integração com APIs</li>
+                    </ul>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">⚙️</div>
+                    <h3>Automação de Processos</h3>
+                    <p>Otimize operações e reduza custos com automação inteligente de processos empresariais.</p>
+                    <ul class="service-list">
+                        <li>RPA (Robotic Process Automation)</li>
+                        <li>Workflows Automatizados</li>
+                        <li>Integração de Sistemas</li>
+                        <li>Scripts Personalizados</li>
+                        <li>Otimização de Processos</li>
+                    </ul>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">🌐</div>
+                    <h3>Desenvolvimento de Websites</h3>
+                    <p>Sites profissionais, modernos e otimizados para conversão e performance.</p>
+                    <ul class="service-list">
+                        <li>Sites Institucionais</li>
+                        <li>E-commerce</li>
+                        <li>Landing Pages</li>
+                        <li>Portais Corporativos</li>
+                        <li>SEO e Performance</li>
+                    </ul>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">💻</div>
+                    <h3>Infraestrutura de TI</h3>
+                    <p>Soluções completas para infraestrutura tecnológica robusta e segura.</p>
+                    <ul class="service-list">
+                        <li>Cloud Computing</li>
+                        <li>Redes e Servidores</li>
+                        <li>Segurança da Informação</li>
+                        <li>Backup e Disaster Recovery</li>
+                        <li>Suporte Técnico</li>
+                    </ul>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">📊</div>
+                    <h3>Consultoria em TI</h3>
+                    <p>Orientação estratégica para maximizar o retorno dos investimentos em tecnologia.</p>
+                    <ul class="service-list">
+                        <li>Planejamento Estratégico</li>
+                        <li>Transformação Digital</li>
+                        <li>Análise de Sistemas</li>
+                        <li>Gestão de Projetos</li>
+                        <li>Auditoria de TI</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="portfolio">
+        <div class="container">
+            <h2 class="section-title">Projetos Desenvolvidos</h2>
+            <p style="text-align: center; font-size: 1.2em; color: #666; margin-bottom: 50px;">
+                Conheça alguns dos projetos que desenvolvemos para nossos clientes
+            </p>
+            
+            <div class="portfolio-grid">
+                <div class="portfolio-item">
+                    <div class="portfolio-icon">🚚</div>
+                    <h3>Sistema de Transportadora</h3>
+                    <p>Website profissional para gestão de carga e transporte em todo Brasil</p>
+                    <span class="portfolio-tech">Web | Python | API</span>
+                </div>
+
+                <div class="portfolio-item">
+                    <div class="portfolio-icon">📊</div>
+                    <h3>Gestão de Recursos TI</h3>
+                    <p>Sistema completo para gerenciamento de recursos e infraestrutura de TI</p>
+                    <span class="portfolio-tech">Dashboard | Automação</span>
+                </div>
+
+                <div class="portfolio-item">
+                    <div class="portfolio-icon">🛒</div>
+                    <h3>E-commerce Supermercados</h3>
+                    <p>Plataformas online para redes de supermercados (Oneta e Mirassol)</p>
+                    <span class="portfolio-tech">E-commerce | Mobile</span>
+                </div>
+
+                <div class="portfolio-item">
+                    <div class="portfolio-icon">🏗️</div>
+                    <h3>Sistema Arquitetura</h3>
+                    <p>Solução web para empresa de arquitetura e engenharia</p>
+                    <span class="portfolio-tech">Web App | Gestão</span>
+                </div>
+
+                <div class="portfolio-item">
+                    <div class="portfolio-icon">💰</div>
+                    <h3>Rei do Óleo</h3>
+                    <p>Plataforma digital para comercialização de produtos</p>
+                    <span class="portfolio-tech">E-commerce | Branding</span>
+                </div>
+
+                <div class="portfolio-item">
+                    <div class="portfolio-icon">🖥️</div>
+                    <h3>Servidor TS 100%</h3>
+                    <p>Infraestrutura e servidor de aplicações em nuvem</p>
+                    <span class="portfolio-tech">Cloud | DevOps</span>
+                </div>
+
+                <div class="portfolio-item">
+                    <div class="portfolio-icon">🏪</div>
+                    <h3>Apas Show</h3>
+                    <p>Sistema para eventos e gerenciamento comercial</p>
+                    <span class="portfolio-tech">Web | Mobile</span>
+                </div>
+
+                <div class="portfolio-item">
+                    <div class="portfolio-icon">📱</div>
+                    <h3>Calculadora de Frete</h3>
+                    <p>Aplicação mobile para cálculo automático de valores de transporte</p>
+                    <span class="portfolio-tech">App Mobile | IA</span>
+                </div>
+            </div>
+
+            <div style="text-align: center; margin-top: 50px;">
+                <p style="font-size: 1.1em; color: #0088cc; font-weight: bold;">
+                    + Dezenas de outros projetos entregues com sucesso
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-section">
+        <div class="container">
+            <h2>Pronto para Transformar seu Negócio?</h2>
+            <p>Entre em contato conosco e descubra como podemos impulsionar sua empresa com tecnologia de ponta</p>
+            <a href="https://wa.me/5511934201198?text=Olá! Gostaria de saber mais sobre os serviços da GRNetworks Tecnologia" class="btn" target="_blank">
+                <span style="font-size: 1.2em;">💬</span> Fale Conosco no WhatsApp
+            </a>
+            <p style="margin-top: 30px; font-size: 1.1em; opacity: 0.95;">
+            </p>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p style="font-size: 1.2em; margin-bottom: 15px;">
+                📞 Entre em contato: <strong>+55 11 93420-1198</strong>
+            </p>
+            <p>&copy; 2024 GRNetworks Tecnologia - Todos os direitos reservados</p>
+            <p>Mais de 20 anos oferecendo soluções inovadoras em TI</p>
+        </div>
+    </footer>
+</body>
+</html>
